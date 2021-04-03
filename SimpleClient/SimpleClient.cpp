@@ -46,17 +46,19 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    int res;
+    std::cout << "current process id: " << GetCurrentProcessId() << std::endl;
+
+    int programRet;
     if (strcmp(argv[1], "-c") == 0)
     {
         
         std::cout << "starting client on port " << port  << "..." << std::endl;
-        res = runClient(port);
+        programRet = runClient(port);
     }
     else if (strcmp(argv[1], "-s") == 0)
     {
         std::cout << "starting server on port " << port << "..." << std::endl;
-        res = runServer(port) ? 0 : 1; // Technically, runServer can be implicitly casted to int from bool
+        programRet = runServer(port) ? 0 : 1; // Technically, runServer can be implicitly casted to int from bool
     }
     else
     {
@@ -67,7 +69,7 @@ int main(int argc, char* argv[])
 
     WSACleanup();
 
-    return res;
+    return programRet;
 }
 
 bool runClient(int port)
