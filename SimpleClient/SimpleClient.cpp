@@ -103,7 +103,7 @@ bool runClient(int port)
             break;
         }
 
-        int bytesSent = send(newSocket, input.c_str(), input.length()+1, 0);
+        int bytesSent = send(newSocket, input.c_str(), static_cast<int>(input.length()+1), 0);
         if (bytesSent == SOCKET_ERROR)
         {
             std::cout << "SOCKET_ERROR from send(...) | WSAGetLastError: " << WSAGetLastError() << std::endl;
