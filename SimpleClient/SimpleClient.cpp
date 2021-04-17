@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
     }
 
     std::cout << "current process id: " << GetCurrentProcessId() << std::endl;
-
+   
     int programRet;
     if (strcmp(argv[1], "-c") == 0)
     {
@@ -98,7 +98,7 @@ bool runClient(int port)
     {
         std::cout << "send > ";
         std::getline(std::cin, input);
-        
+
         if (input == "exit()")
         {
             std::cout << "exit() called. closing socket..." << std::endl;
@@ -137,7 +137,7 @@ bool runServer(int port)
     serverService.sin_port = htons(port);
 
     if (bind(listenSocket, (SOCKADDR*)&serverService, sizeof(serverService)) == SOCKET_ERROR) {
-        std::cout << "Bind failed with error" << std::endl;
+        std::cout << "bind failed with error" << std::endl;
         closesocket(listenSocket);
         return false;
     }
@@ -171,7 +171,7 @@ bool runServer(int port)
             break;
         }
 
-        std::cout << "Data received: " << buf << " | Length: " << bytesRet << std::endl;
+        std::cout << "data received: " << buf << " | length: " << bytesRet << std::endl;
     }
 
     std::cout << "connection lost. error: " << (error ? "true" : "false") << std::endl;
