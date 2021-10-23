@@ -22,6 +22,7 @@ int main(int argc, char* argv[])
         std::cout << "MODE:\n";
         std::cout << "-c    set-up program in client mode\n";
         std::cout << "-s    set-up program in server mode\n";
+        std::cout << "-cw    set-up program in client mode and wait for user input before connecting\n";
     };
 
     if (argc != 3)
@@ -53,6 +54,13 @@ int main(int argc, char* argv[])
     {
         std::cout << "starting client on port " << port  << "...\n";
         programRet = runClient(port) ? 0 : 1;;
+    }
+    else if (strcmp(argv[1], "-cw") == 0)
+    {
+        std::cout << "press enter to connect to server\n";
+        system("pause");
+        std::cout << "starting client on port " << port << "...\n";
+        programRet = runClient(port);
     }
     else if (strcmp(argv[1], "-s") == 0)
     {
