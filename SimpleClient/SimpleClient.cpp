@@ -97,7 +97,7 @@ bool runClient(int port)
     }
 
     std::cout << "connected to server on port " << port << "\n";
-    std::cout << "type 'exit()' to quit\n";
+    std::cout << "type '!exit' to quit\n";
 
     bool error = false;
     std::string input;
@@ -106,9 +106,9 @@ bool runClient(int port)
         std::cout << "send > ";
         std::getline(std::cin, input);
 
-        if (input == "exit()")
+        if (input == "!exit")
         {
-            std::cout << "exit() called. closing socket...\n";
+            std::cout << "!exit called. closing socket...\n";
             break;
         }
 
