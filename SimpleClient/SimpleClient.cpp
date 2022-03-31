@@ -178,7 +178,7 @@ bool runServer(int port)
             break;
         }
 
-        std::cout << "data received: " << buf << " | length: " << bytesRet << "\n";
+        std::cout << "data received: " << std::string(buf, bytesRet) << " | length: " << bytesRet << "\n";
     }
 
     std::cout << "connection lost. error: " << (error ? "true" : "false") << "\n";
