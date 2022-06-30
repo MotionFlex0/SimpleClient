@@ -5,8 +5,9 @@
  ```SimpleClient.exe MODE PORT```
  ```
  Mode:
-  -s = Run as server
-  -c = Run as client connecting to server
+  -s  = Run as server
+  -c  = Run as client connecting to server
+  -cw = Run as client but wait for user input before connecting to server 
   ```
 ### Example
   Starts a server on port 1337:
