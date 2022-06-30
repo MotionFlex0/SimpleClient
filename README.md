@@ -19,3 +19,7 @@
   SimpleClient.exe -c 1337
   ```
   
+  Wait for user input before connecting to existing server on port 1337.
+  ```
+  SimpleClient.exe -cw 1337
+  ```
