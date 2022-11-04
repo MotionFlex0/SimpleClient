@@ -16,7 +16,7 @@ bool runServer(int port);
 
 int main(int argc, char* argv[])
 {
-    auto printUsage = []() 
+    auto printUsage = []
     {
         std::cout << "usage: simpleclient.exe MODE PORT\n";
         std::cout << "MODE:\n";
