@@ -169,16 +169,16 @@ bool runServer(int port)
     bool error = false;
     char buf[2048];
     int bytesRet;
+
     while ((bytesRet = recv(acceptSocket, buf, sizeof(buf), 0)) > 0)
     {
-        if (bytesRet == SOCKET_ERROR)
-        {
-            std::cout << "SOCKET_ERROR from recv(...) | WSAGetLastError: " << WSAGetLastError() << "\n";
-            error = true;
-            break;
-        }
-
         std::cout << "data received: " << std::string(buf, bytesRet) << " | length: " << bytesRet << "\n";
+    }
+
+    if (bytesRet == SOCKET_ERROR)
+    {
+        std::cout << "SOCKET_ERROR from recv(...) | WSAGetLastError: " << WSAGetLastError() << "\n";
+        error = true;
     }
 
     std::cout << "connection lost. error: " << (error ? "true" : "false") << "\n";
